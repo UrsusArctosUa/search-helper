@@ -1,0 +1,42 @@
+{
+    "name": "ursusarctosua/search-helper",
+    "type": "library",
+    "description": "Simple doctrine request generator for pagination, ordering, and filtering",
+    "keywords": [
+        "doctrine",
+        "orm",
+        "pagination",
+        "filter",
+        "sorting"
+    ],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Dmytro Dubrovny",
+            "email": "dubrovnyd@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "doctrine/orm": "^2.6",
+        "doctrine/common": "^2.6"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "phpunit/phpunit": "^7.0 || ^8.0",
+        "symfony/http-foundation": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "UrsusArctosUA\\SearchHelper\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UrsusArctosUA\\SearchHelper\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
