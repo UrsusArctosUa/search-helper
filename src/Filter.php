@@ -2,8 +2,6 @@
 
 namespace UrsusArctosUA\SearchHelper;
 
-use UrsusArctosUA\SearchHelper\Filter\Condition;
-
 /**
  * Interface Filter
  * @package UrsusArctosUA\SearchHelper

@@ -2,9 +2,9 @@
 
 namespace UrsusArctosUA\SearchHelper\Request;
 
+use UrsusArctosUA\SearchHelper\Condition as ConditionAbstract;
 use UrsusArctosUA\SearchHelper\Filter as FilterInterface;
-use UrsusArctosUA\SearchHelper\Filter\Condition;
-use UrsusArctosUA\SearchHelper\Filter\SimpleCondition;
+use UrsusArctosUA\SearchHelper\Simple\Condition;
 
 /**
  * Class Filter
@@ -51,20 +51,20 @@ class Filter implements FilterInterface
     }
 
     /**
-     * @return iterable<Condition>
+     * @return iterable<ConditionAbstract>
      */
     public function conditions(): iterable
     {
         if (is_array($this->value)) {
-            if (empty(array_diff(array_keys($this->value), Condition::conditions()))) {
+            if (empty(array_diff(array_keys($this->value), ConditionAbstract::conditions()))) {
                 foreach ($this->value as $condition => $value) {
-                    yield new SimpleCondition($condition, $value);
+                    yield new Condition($condition, $value);
                 }
             } else {
-                yield new SimpleCondition(Condition::IN, $this->value);
+                yield new Condition(ConditionAbstract::IN, $this->value);
             }
         } else {
-            yield new SimpleCondition(Condition::EQ, $this->value);
+            yield new Condition(ConditionAbstract::EQ, $this->value);
         }
 
     }

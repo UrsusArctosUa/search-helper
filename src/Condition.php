@@ -1,6 +1,6 @@
 <?php
 
-namespace UrsusArctosUA\SearchHelper\Filter;
+namespace UrsusArctosUA\SearchHelper;
 
 /**
  * Interface Condition

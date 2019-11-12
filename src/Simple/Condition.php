@@ -1,12 +1,14 @@
 <?php
 
-namespace UrsusArctosUA\SearchHelper\Filter;
+namespace UrsusArctosUA\SearchHelper\Simple;
+
+use UrsusArctosUA\SearchHelper\Condition as ConditionAbstract;
 
 /**
- * Class SimpleCondition
+ * Class Condition
  * @package UrsusArctosUA\SearchHelper
  */
-class SimpleCondition extends Condition
+class Condition extends ConditionAbstract
 {
     /**
      * @var string
@@ -19,7 +21,7 @@ class SimpleCondition extends Condition
     private $value;
 
     /**
-     * SimpleCondition constructor.
+     * Condition constructor.
      *
      * @param string $name
      * @param mixed $value
