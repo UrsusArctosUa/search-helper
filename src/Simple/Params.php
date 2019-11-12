@@ -35,15 +35,15 @@ class Params implements ParamsInterface
     /**
      * Params constructor.
      *
-     * @param iterable<FilterInterface> $filters
-     * @param int $limit
-     * @param int|null $offset
-     * @param iterable<OrderInterface> $orders
+     * @param iterable $filters
+     * @param int|null $limit
+     * @param int $offset
+     * @param iterable $orders
      */
     public function __construct(
         iterable $filters,
-        int $limit,
-        ?int $offset = null,
+        ?int $limit = null,
+        int $offset = 0,
         iterable $orders = []
     ) {
         $this->filters = $filters;
