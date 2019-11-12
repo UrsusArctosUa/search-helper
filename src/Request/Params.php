@@ -15,9 +15,19 @@ use UrsusArctosUA\SearchHelper\Simple\Order;
 class Params implements ParamsInterface
 {
     /**
-     * @var int
+     * @var array
      */
-    private $limit;
+    private $defaultFilter;
+
+    /**
+     * @var int|null
+     */
+    private $defaultLimit;
+
+    /**
+     * @var array
+     */
+    private $defaultOrder;
 
     /**
      * @var Request
@@ -28,12 +38,20 @@ class Params implements ParamsInterface
      * Params constructor.
      *
      * @param Request $request
-     * @param int $limit
+     * @param int $defaultLimit
+     * @param array $defaultFilter
+     * @param array $defaultOrder
      */
-    public function __construct(Request $request, int $limit = 20)
-    {
+    public function __construct(
+        Request $request,
+        ?int $defaultLimit = 20,
+        array $defaultFilter = [],
+        array $defaultOrder = []
+    ) {
         $this->request = $request;
-        $this->limit = $limit;
+        $this->defaultLimit = $defaultLimit;
+        $this->defaultFilter = $defaultFilter;
+        $this->defaultOrder = $defaultOrder;
     }
 
     /**
@@ -56,7 +74,7 @@ class Params implements ParamsInterface
      */
     public function limit(): ?int
     {
-        return $this->request->get('limit', $this->limit);
+        return $this->request->get('limit', $this->defaultLimit);
     }
 
     /**
@@ -64,7 +82,7 @@ class Params implements ParamsInterface
      */
     public function filters(): iterable
     {
-        foreach ($this->request->get('filter', []) as $name => $value) {
+        foreach ($this->request->get('filter', $this->defaultFilter) as $name => $value) {
             yield new Filter($name, $value);
         }
     }
@@ -74,7 +92,7 @@ class Params implements ParamsInterface
      */
     public function orders(): iterable
     {
-        foreach ($this->request->get('order_by', []) as $name => $direction) {
+        foreach ($this->request->get('order_by', $this->defaultOrder) as $name => $direction) {
             yield new Order($name, $direction);
         }
     }
