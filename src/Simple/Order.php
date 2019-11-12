@@ -1,6 +1,6 @@
 <?php
 
-namespace UrsusArctosUA\SearchHelper\Request;
+namespace UrsusArctosUA\SearchHelper\Simple;
 
 use UrsusArctosUA\SearchHelper\Order as OrderInterface;
 

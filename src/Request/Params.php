@@ -2,10 +2,11 @@
 
 namespace UrsusArctosUA\SearchHelper\Request;
 
-use UrsusArctosUA\SearchHelper\Filter as FilterInterface;
-use UrsusArctosUA\SearchHelper\Params as ParamsInterface;
-use UrsusArctosUA\SearchHelper\Order as OrderInterface;
 use Symfony\Component\HttpFoundation\Request;
+use UrsusArctosUA\SearchHelper\Filter as FilterInterface;
+use UrsusArctosUA\SearchHelper\Order as OrderInterface;
+use UrsusArctosUA\SearchHelper\Params as ParamsInterface;
+use UrsusArctosUA\SearchHelper\Simple\Order;
 
 /**
  * Class Params
