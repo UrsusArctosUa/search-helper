@@ -1,6 +1,6 @@
 <?php
 
-namespace UrsusArctosUA\SearchHelper\Request;
+namespace UrsusArctosUA\SearchHelper\Dictionary;
 
 use UrsusArctosUA\SearchHelper\Condition as ConditionAbstract;
 use UrsusArctosUA\SearchHelper\Filter as FilterInterface;
@@ -66,6 +66,5 @@ class Filter implements FilterInterface
         } else {
             yield new Condition(ConditionAbstract::EQ, $this->value);
         }
-
     }
 }

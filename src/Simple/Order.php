@@ -6,7 +6,7 @@ use UrsusArctosUA\SearchHelper\Order as OrderInterface;
 
 /**
  * Class Order
- * @package UrsusArctosUA\SearchHelper\Request
+ * @package UrsusArctosUA\SearchHelper\Simple
  */
 class Order implements OrderInterface
 {

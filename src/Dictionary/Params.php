@@ -1,14 +1,15 @@
 <?php
 
-namespace UrsusArctosUA\SearchHelper\Simple;
+namespace UrsusArctosUA\SearchHelper\Dictionary;
 
 use UrsusArctosUA\SearchHelper\Filter as FilterInterface;
 use UrsusArctosUA\SearchHelper\Order as OrderInterface;
 use UrsusArctosUA\SearchHelper\Params as ParamsInterface;
+use UrsusArctosUA\SearchHelper\Simple\Order;
 
 /**
- * Class Params
- * @package UrsusArctosUA\SearchHelper\Simple
+ * Class RequestParams
+ * @package UrsusArctosUA\SearchHelper\Request
  */
 class Params implements ParamsInterface
 {
@@ -18,12 +19,12 @@ class Params implements ParamsInterface
     private $filters;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $limit;
 
     /**
-     * @var int|null
+     * @var int
      */
     private $offset;
 
@@ -36,13 +37,13 @@ class Params implements ParamsInterface
      * RequestParams constructor.
      *
      * @param iterable $filters
-     * @param int|null $limit
+     * @param int $limit
      * @param int $offset
-     * @param iterable $orders
+     * @param array $orders
      */
     public function __construct(
         iterable $filters,
-        ?int $limit = null,
+        ?int $limit = 20,
         int $offset = 0,
         iterable $orders = []
     ) {
@@ -73,7 +74,9 @@ class Params implements ParamsInterface
      */
     public function filters(): iterable
     {
-        return $this->filters;
+        foreach ($this->filters as $field => $value) {
+            yield new Filter($field, $value);
+        }
     }
 
     /**
@@ -81,6 +84,8 @@ class Params implements ParamsInterface
      */
     public function orders(): iterable
     {
-        return $this->orders;
+        foreach ($this->orders as $field => $direction) {
+            yield new Order($field, $direction);
+        }
     }
 }

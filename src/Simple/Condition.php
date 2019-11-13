@@ -6,7 +6,7 @@ use UrsusArctosUA\SearchHelper\Condition as ConditionAbstract;
 
 /**
  * Class Condition
- * @package UrsusArctosUA\SearchHelper
+ * @package UrsusArctosUA\SearchHelper\Simple
  */
 class Condition extends ConditionAbstract
 {

@@ -3,7 +3,7 @@
 namespace UrsusArctosUA\SearchHelper;
 
 /**
- * Interface Params
+ * Interface RequestParams
  * @package UrsusArctosUA\SearchHelper
  */
 interface Params
