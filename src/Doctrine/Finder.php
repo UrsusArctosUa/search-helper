@@ -121,7 +121,8 @@ class Finder implements FinderInterface
                 /** @var Condition $condition */
                 foreach ($filter->conditions() as $condition) {
                     $parameter = uniqid('p');
-                    $expr = $eBuilder->${$condition->name()}("$alias.$property", ":$parameter");
+                    $name = $condition->name();
+                    $expr = $eBuilder->$name("$alias.$property", ":$parameter");
                     $builder->setParameter($parameter, $condition->value());
                     $builder->andWhere($expr);
                 }
