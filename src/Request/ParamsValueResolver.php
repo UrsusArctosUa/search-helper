@@ -37,6 +37,7 @@ class ParamsValueResolver implements ArgumentValueResolverInterface
      */
     public function resolve(Request $request, ArgumentMetadata $argument)
     {
-        yield new ($argument->getType())($request);
+        $type = $argument->getType();
+        yield new $type($request);
     }
 }
